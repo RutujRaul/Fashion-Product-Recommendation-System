@@ -1,0 +1,26 @@
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+.animated-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #007bff;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.animated-image {
+    transition: transform 0.3s ease-in-out;
+    border: 2px solid #007bff;
+    border-radius: 10px;
+}
+
+.animated-image:hover {
+    transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
