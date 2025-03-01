@@ -5,10 +5,8 @@ from tensorflow.keras.applications import MobileNetV2
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 from tensorflow.keras.preprocessing import image
 
-# Load MobileNetV2 model
 model = MobileNetV2(weights="imagenet", include_top=False, pooling="avg")
 
-# Define dataset folder
 DATASET_FOLDER = "static/images"
 features = []
 image_paths = []
@@ -24,7 +22,6 @@ for img_name in os.listdir(DATASET_FOLDER):
     features.append(feature_vector)
     image_paths.append(img_path)
 
-# Save extracted features
 with open("static/features.pkl", "wb") as f:
     pickle.dump((np.array(features), image_paths), f)
 

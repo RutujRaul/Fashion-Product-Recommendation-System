@@ -8,14 +8,11 @@ from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 from tensorflow.keras.preprocessing import image
 from sklearn.metrics.pairwise import cosine_similarity
 
-# Initialize Flask app
 app = Flask(__name__)
 
-# Define upload folder
 UPLOAD_FOLDER = "static/uploads"
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
-# Load extracted features
 FEATURES_PATH = "static/features.pkl"
 
 if not os.path.exists(FEATURES_PATH):
@@ -24,7 +21,6 @@ if not os.path.exists(FEATURES_PATH):
 with open(FEATURES_PATH, "rb") as f:
     feature_vectors, image_paths = pickle.load(f)
 
-# Load model
 model = MobileNetV2(weights="imagenet", include_top=False, pooling="avg")
 
 def extract_features(img_path):
